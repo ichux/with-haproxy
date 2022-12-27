@@ -94,4 +94,10 @@ Run
 cd v4
 cp .env-example .env # and change the ports in ".env" to taste
 ./runner.sh
+
+# load balancer - terminal 1
+docker exec -it hxy-haproxy-if-web2-1 python load_balancer.py
+
+# load balancer - terminal 2
+docker exec -it hxy-haproxy-if-web1-1 python read_net_global.py 1
 ```

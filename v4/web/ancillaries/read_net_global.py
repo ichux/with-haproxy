@@ -54,6 +54,5 @@ def worker(times):
 
 
 if __name__ == "__main__":
-    with Executor(max_workers=10) as executor:[27-Dec-2022 12:57:28] INFO [console.worker:53]: 2022-12-27T12:57:28.282670
-
+    with Executor(max_workers=10) as executor:
         future = executor.submit(worker, int(sys.argv[1]))

@@ -13,5 +13,6 @@ docker run --rm -it --net hxy_net haproxy_if_base python read_net_global.py 1
 
 # docker run --rm -it --net hxy_net haproxy_if_base python read_net_2_global.py 1
 # docker run --rm -it --net hxy_net curlimages/curl:7.86.0 -I http://haproxy_if_web1:12345
+# https://serverfault.com/questions/625387/configuring-haproxy-for-rpc-only-one-host
 
 docker logs -f haproxy_cf_app

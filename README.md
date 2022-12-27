@@ -60,8 +60,17 @@ Assumptions
 
 - Step 1
 ```shell
+
+# total_cpus=$(grep ^cpu\\scores /proc/cpuinfo | uniq |  awk '{print $4}')
+# echo "$total_cpus"
+
 # ensure you are within v3 to run all these commands
 cd v3
 cp .env-example .env # and change the ports in ".env" to taste
-docker-compose -p hxy up -d
+
+docker-compose -p hxy up --build -d haproxy_if_base
+docker-compose -p hxy up --build -d
+
+# clean up
+docker stop haproxy_cf_base > /dev/null 2>&1 && docker rm haproxy_cf_base > /dev/null 2>&1
 ```

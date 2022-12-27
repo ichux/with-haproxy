@@ -5,6 +5,6 @@ docker rm `docker ps -a | awk '{print $(NF)}' | grep hap | sed 's/==.*//g' | tr 
 
 docker-compose -p hxy up --build -d
 
-docker exec -it hxy-haproxy-if-web1-1 python read_net_global.py 5
+sleep 2 && docker exec -it hxy-haproxy-if-web1-1 python read_net_global.py 7
 
 docker logs -f hxy-haproxy-if-web1-1

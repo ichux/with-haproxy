@@ -9,19 +9,19 @@ services:
     image: haproxy_if_base
     container_name: haproxy_cf_base
 
-  # haproxy_if_app:
-  #   image: haproxy:2.7.1-bullseye
-  #   restart: always
-  #   container_name: haproxy_cf_app
-  #   ports:
-  #     - ${WEB:-8100}:80
-  #     - ${DASHBOARD:-8200}:8404
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - ./:/usr/local/etc/haproxy:ro
-  #   networks:
-  #     - net
+  haproxy_if_app:
+    image: haproxy:2.7.1-bullseye
+    restart: always
+    container_name: haproxy_cf_app
+    ports:
+      - ${WEB:-8100}:80
+      - ${DASHBOARD:-8200}:8404
+    env_file:
+      - .env
+    volumes:
+      - ./:/usr/local/etc/haproxy:ro
+    networks:
+      - net
 
   haproxy_if_web1:
     image: haproxy_if_base

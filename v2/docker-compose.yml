@@ -1,0 +1,37 @@
+version: "3.9"
+
+networks:
+  net:
+
+services:
+  haproxy_if_app:
+    image: haproxy:2.7.1-bullseye
+    restart: always
+    container_name: haproxy_cf_app
+    ports:
+      - ${WEB:-8100}:80
+      - ${DASHBOARD:-8200}:8404
+    env_file:
+      - .env
+    volumes:
+      - ./:/usr/local/etc/haproxy:ro
+    networks:
+      - net
+
+  haproxy_if_web1:
+    image: jmalloc/echo-server
+    restart: always
+    networks:
+      - net
+
+  haproxy_if_web2:
+    image: jmalloc/echo-server
+    restart: always
+    networks:
+      - net
+
+  haproxy_if_web3:
+    image: jmalloc/echo-server
+    restart: always
+    networks:
+      - net

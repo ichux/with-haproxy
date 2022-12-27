@@ -29,9 +29,3 @@ services:
     restart: always
     networks:
       - net
-
-  haproxy_if_web3:
-    image: jmalloc/echo-server
-    restart: always
-    networks:
-      - net

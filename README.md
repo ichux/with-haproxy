@@ -51,11 +51,7 @@ docker-compose -p hxy up -d
 #  Start up - V3
 The concept is to test a global variable accessible across network.
 
-Assumptions
-1. The virtual environment is activated
-2. You have started the server on a separate shell
-   > python web/external/share_global.py
-3. Run 1000 concurrent requests using bash.
+Run
    > ./floods.sh
 
 - Step 1
@@ -80,4 +76,22 @@ docker exec -it hxy-haproxy_if_web3-1 python read_net_global.py 1
 
 # TODO: fix it
 docker exec -it hxy-haproxy_if_web3-1 python read_net_2_global.py 1
+```
+
+#  Start up - V4
+The concept is to test a global variable accessible across network.
+
+Run
+   > ./floods.sh
+
+- Step 1
+```shell
+
+# total_cpus=$(grep ^cpu\\scores /proc/cpuinfo | uniq |  awk '{print $4}')
+# echo "$total_cpus"
+
+# ensure you are within v4 to run all these commands
+cd v4
+cp .env-example .env # and change the ports in ".env" to taste
+./runner.sh
 ```

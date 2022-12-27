@@ -1,0 +1,41 @@
+version: "3.9"
+
+networks:
+  net:
+
+services:
+  # haproxy-if-app:
+  #   image: haproxy:2.7.1-bullseye
+  #   restart: always
+  #   container_name: haproxy_cf_app
+  #   ports:
+  #     - ${WEB:-8100}:80
+  #     - ${DASHBOARD:-8200}:8404
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - ./:/usr/local/etc/haproxy:ro
+  #   networks:
+  #     - net
+
+  haproxy-if-web1:
+    image: python:3.10.8-alpine3.16
+    pull_policy: missing
+    restart: always
+    command: python3 share_global.py
+    volumes:
+      - ./web/ancillaries:/web
+    working_dir: /web
+    networks:
+      - net
+
+  haproxy-if-web2:
+    image: python:3.10.8-alpine3.16
+    pull_policy: missing
+    restart: always
+    command: python3 share_global.py
+    volumes:
+      - ./web/ancillaries:/web
+    working_dir: /web
+    networks:
+      - net

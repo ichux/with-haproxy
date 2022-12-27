@@ -44,7 +44,8 @@ manager = RemoteManager(
 
 manager.connect()
 
-remote_ops = getattr(manager, "RemoteOperations")()
+# remote_ops = getattr(manager, "RemoteOperations")()
+remote_ops = manager.RemoteOperations
 
 
 def worker(times):

@@ -46,3 +46,22 @@ docker-compose -p hxy up -d
 
 - Step 2 - Browse (based on the ports in your .env)
 > http://127.0.0.1:8100/ or http://127.0.0.1:8200/
+
+
+#  Start up - V3
+The concept is to test a global variable accessible across network.
+
+Assumptions
+1. The virtual environment is activated
+2. You have started the server on a separate shell
+   > python web/external/share_global.py
+3. Run 1000 concurrent requests using bash.
+   > ./floods.sh
+
+- Step 1
+```shell
+# ensure you are within v3 to run all these commands
+cd v3
+cp .env-example .env # and change the ports in ".env" to taste
+docker-compose -p hxy up -d
+```

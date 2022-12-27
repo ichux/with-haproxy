@@ -39,7 +39,7 @@ class RemoteManager(BaseManager):
 
 RemoteManager.register("RemoteOperations")
 manager = RemoteManager(
-    address=("haproxy-if-app", 80), authkey=b"5a946d6066c1487a5f48a04d2b0af"
+    address=("hxy-haproxy-if-web2-1", 5555), authkey=b"5a946d6066c1487a5f48a04d2b0af"
 )
 
 manager.connect()

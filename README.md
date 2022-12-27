@@ -72,7 +72,7 @@ docker stop haproxy_cf_base > /dev/null 2>&1 && docker rm haproxy_cf_base > /dev
 
 # connect from another image
 docker run --tty -d --name hxy-haproxy_if_web3-1 --net hxy_net haproxy_if_base
-docker exec -it hxy-haproxy_if_web3-1 python read_net_global.py 1
+docker exec -it hxy-haproxy_if_web3-1 python read_net_1_global.py 1
 
 # TODO: fix it
 docker exec -it hxy-haproxy_if_web3-1 python read_net_2_global.py 1
@@ -99,5 +99,5 @@ cp .env-example .env # and change the ports in ".env" to taste
 docker exec -it hxy-haproxy-if-web2-1 python load_balancer.py
 
 # load balancer - terminal 2
-docker exec -it hxy-haproxy-if-web1-1 python read_net_global.py 1
+docker exec -it hxy-haproxy-if-web1-1 python read_net_2_global.py 1
 ```

@@ -51,5 +51,6 @@ def worker(times):
 
 
 if __name__ == "__main__":
+    # seq 1 50 | xargs -n1 -P50 python3 web/ancillaries/read_global.py 100
     with Executor(max_workers=10) as executor:
         future = executor.submit(worker, int(sys.argv[1]))

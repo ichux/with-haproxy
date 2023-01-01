@@ -1,8 +1,7 @@
 import argparse
 import logging
-import sys
-from itertools import cycle
 import time
+from itertools import cycle
 from multiprocessing.managers import BaseManager
 
 count = 0
@@ -19,7 +18,9 @@ ITERATE = cycle(SERVER_POOL)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[logging.StreamHandler(sys.stdout)],
+    # handlers=[logging.StreamHandler(sys.stdout)],
+    filename="global.log",
+    filemode="w",
 )
 
 
@@ -29,7 +30,9 @@ class NextServer:
         global count
 
         count += 1
-        logging.info(f"+: PORT ({args.port}) | count: {count} | {time.perf_counter_ns()}")
+        logging.info(
+            f"+: PORT ({args.port}) | count: {count} | {time.perf_counter_ns()}"
+        )
         return next(ITERATE)
 
 

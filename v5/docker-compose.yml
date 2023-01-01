@@ -1,0 +1,15 @@
+version: "3.9"
+
+networks:
+  net:
+
+services:
+  scaled:
+    image: python:3.10.8-alpine3.16
+    restart: always
+    command: python3 share_global.py
+    volumes:
+      - ./web/ancillaries:/web
+    working_dir: /web
+    networks:
+      - net

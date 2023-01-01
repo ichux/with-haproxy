@@ -1,9 +1,11 @@
 import argparse
 import logging
-import multiprocessing
 import sys
 from itertools import cycle
+import time
 from multiprocessing.managers import BaseManager
+
+count = 0
 
 DESCRIPTION = """\
 Share a global variable
@@ -24,9 +26,10 @@ logging.basicConfig(
 class NextServer:
     @staticmethod
     def server():
-        state.value += 1
+        global count
 
-        logging.info(f"+: {port.value} | {state.value}")
+        count += 1
+        logging.info(f"+: PORT ({args.port}) | count: {count} | {time.perf_counter_ns()}")
         return next(ITERATE)
 
 
@@ -46,11 +49,13 @@ if __name__ == "__main__":
         parser.print_help()
         parser.exit(1)
 
-    mlt = multiprocessing.Manager()
-    port = mlt.Value("a", args.port)
-    state = mlt.Value("b", 0)
+    # import multiprocessing
+    # mlt = multiprocessing.Manager()
+    # port = mlt.Value("a", args.port)
+    # state = mlt.Value("b", 0)
+    # logging.info("port.value: %d", port.value)
 
     RemoteManager.register("NextServer", NextServer)
     RemoteManager(
-        address=("0.0.0.0", port.value), authkey=b"5a946d6066c1487"
+        address=("0.0.0.0", args.port), authkey=b"5a946d6066c1487"
     ).get_server().serve_forever()

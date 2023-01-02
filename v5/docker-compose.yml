@@ -4,12 +4,19 @@ networks:
   net:
 
 services:
-  scaled:
-    image: python:3.10.8-alpine3.16
+  ids:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: trained-model
+
+    # (for CI)
+    # pull_policy: if_not_present
+    pull_policy: missing
     restart: always
-    command: python3 share_global.py
+    container_name: cds
+    command: sh -c "./onboot.sh app"
+    env_file:
+      - .env
     volumes:
-      - ./web/ancillaries:/web
-    working_dir: /web
-    networks:
-      - net
+      - ./web:/web

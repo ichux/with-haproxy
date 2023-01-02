@@ -9,13 +9,14 @@ services:
       context: .
       dockerfile: Dockerfile
     image: trained-model
-
     # (for CI)
     # pull_policy: if_not_present
     pull_policy: missing
     restart: always
     container_name: cds
     command: sh -c "./onboot.sh app"
+    ports:
+      - ${SUPERVISOR}:9001
     env_file:
       - .env
     volumes:

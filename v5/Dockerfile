@@ -7,7 +7,7 @@ ENV P2="pip3 install --find-links=. --cache-dir . --disable-pip-version-check"
 
 COPY requirements.txt .
 RUN $P1 pip setuptools wheel -r requirements.txt && $P2 pip setuptools wheel && \
-    $P2 $(ls *.gz | tr '\n' ' ') && $P2 $(ls *.whl | tr '\n' ' ') && \
+    $P2 $(ls *.whl | tr '\n' ' ')  &> /dev/null && \
     find /usr/local/lib/python3.10 -name '__pycache__' -type d -print0 | xargs -0 /bin/rm -rf '{}' && \
     find /usr/local/lib/python3.10 -iname '*.pyc' -delete
 

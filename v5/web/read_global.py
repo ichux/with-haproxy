@@ -3,6 +3,9 @@ import sys
 from concurrent.futures import ThreadPoolExecutor as Executor
 from multiprocessing.managers import BaseManager
 
+from xmlrpc.client import ServerProxy
+server = ServerProxy('http://localhost:19001/RPC2')
+
 LOGGING_CONFIG = {
     "version": 1,
     "disable_existing_loggers": False,

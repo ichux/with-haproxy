@@ -1,0 +1,27 @@
+2023-01-02 07:30:37,118 INFO Set uid to user 0 succeeded
+2023-01-02 07:30:37,147 INFO RPC interface 'supervisor' initialized
+2023-01-02 07:30:37,148 INFO supervisord started with pid 1
+2023-01-02 07:30:38,152 INFO spawned: '1001' with pid 11
+2023-01-02 07:30:38,157 INFO spawned: '10010' with pid 12
+2023-01-02 07:30:38,159 INFO spawned: '10011' with pid 13
+2023-01-02 07:30:38,161 INFO spawned: '10012' with pid 14
+2023-01-02 07:30:38,162 INFO spawned: '1002' with pid 15
+2023-01-02 07:30:38,165 INFO spawned: '1003' with pid 16
+2023-01-02 07:30:38,167 INFO spawned: '1004' with pid 17
+2023-01-02 07:30:38,170 INFO spawned: '1005' with pid 18
+2023-01-02 07:30:38,173 INFO spawned: '1006' with pid 19
+2023-01-02 07:30:38,176 INFO spawned: '1007' with pid 20
+2023-01-02 07:30:38,180 INFO spawned: '1008' with pid 21
+2023-01-02 07:30:38,182 INFO spawned: '1009' with pid 22
+2023-01-02 07:30:39,185 INFO success: 1001 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-02 07:30:39,185 INFO success: 10010 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-02 07:30:39,186 INFO success: 10011 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-02 07:30:39,186 INFO success: 10012 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-02 07:30:39,186 INFO success: 1002 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-02 07:30:39,186 INFO success: 1003 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-02 07:30:39,186 INFO success: 1004 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-02 07:30:39,186 INFO success: 1005 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-02 07:30:39,186 INFO success: 1006 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-02 07:30:39,187 INFO success: 1007 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-02 07:30:39,187 INFO success: 1008 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-02 07:30:39,187 INFO success: 1009 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

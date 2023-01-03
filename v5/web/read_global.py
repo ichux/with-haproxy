@@ -1,10 +1,17 @@
 import logging.config
 import sys
 from concurrent.futures import ThreadPoolExecutor as Executor
+from itertools import cycle
 from multiprocessing.managers import BaseManager
-
 from xmlrpc.client import ServerProxy
-server = ServerProxy('http://localhost:19001/RPC2')
+
+SERVER_POOL = [
+    f"{_.get('group')}:{_.get('name')}"
+    for _ in ServerProxy(
+        "http://admin:d5a122d9@localhost:19001/RPC2"
+    ).supervisor.signalAllProcesses("data_science")
+]
+ITERATE_SERVER_URLS = cycle(SERVER_POOL)
 
 LOGGING_CONFIG = {
     "version": 1,

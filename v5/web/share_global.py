@@ -34,19 +34,18 @@ class Populate(object):
 
 
 class NextServer:
-    @staticmethod
-    def server():
+    ns = 0
+
+    def server(self):
         global count
+        self.ns = time.perf_counter_ns()
 
         count += 1
-        logging.info(
-            f"+: PORT ({args.port}) | count: {count} | ns: {time.perf_counter_ns()}"
-        )
+        logging.info(f"+: PORT ({args.port}) | count: {count} | ns: {self.ns}")
         return next(ITERATE)
 
-    @staticmethod
-    def populates():
-        return Populate(time.perf_counter_ns())
+    def populates(self):
+        return Populate(self.ns)
 
 
 class RemoteManager(BaseManager):

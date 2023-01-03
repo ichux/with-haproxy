@@ -47,6 +47,14 @@ class RemoteManager(BaseManager):
     pass
 
 
+class Populate(object):
+    def __init__(self, perf_counter_ns):
+        self.perf_counter_ns = perf_counter_ns
+
+    def when(self):
+        return self.perf_counter_ns
+
+
 RemoteManager.register("NextServer")
 manager = RemoteManager(address=("0.0.0.0", 12345), authkey=b"5a946d6066c1487")
 manager.connect()
@@ -57,7 +65,15 @@ remote_ops = getattr(manager, "NextServer")()
 def worker(times):
     logger.debug("iteration: %s", times)
     for _ in range(times):
-        logger.info(remote_ops.server())
+        server = remote_ops.server()
+        populates = remote_ops.populates()
+
+        logger.info("server: %s, type(server): %s", server, type(server))
+        logger.info("populates: %s, type(populates): %s", populates, type(populates))
+        logger.info(
+            "Populate(populates).when() == populates: %s",
+            Populate(populates).when() == populates,
+        )
 
 
 if __name__ == "__main__":

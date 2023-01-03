@@ -25,6 +25,14 @@ logging.basicConfig(
 )
 
 
+class Populate(object):
+    def __init__(self, perf_counter_ns):
+        self.perf_counter_ns = perf_counter_ns
+
+    def when(self):
+        return self.perf_counter_ns
+
+
 class NextServer:
     @staticmethod
     def server():
@@ -35,6 +43,10 @@ class NextServer:
             f"+: PORT ({args.port}) | count: {count} | ns: {time.perf_counter_ns()}"
         )
         return next(ITERATE)
+
+    @staticmethod
+    def populates():
+        return Populate(time.perf_counter_ns()).when()
 
 
 class RemoteManager(BaseManager):

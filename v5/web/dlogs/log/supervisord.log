@@ -25,3 +25,99 @@
 2023-01-02 07:30:39,187 INFO success: 1007 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2023-01-02 07:30:39,187 INFO success: 1008 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2023-01-02 07:30:39,187 INFO success: 1009 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:41:34,057 WARN received SIGTERM indicating exit request
+2023-01-03 07:41:34,059 INFO waiting for 1001, 10010, 10011, 10012, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009 to die
+2023-01-03 07:41:34,067 WARN stopped: 1002 (terminated by SIGTERM)
+2023-01-03 07:41:34,068 WARN stopped: 10010 (terminated by SIGTERM)
+2023-01-03 07:41:34,068 WARN stopped: 10011 (terminated by SIGTERM)
+2023-01-03 07:41:34,068 WARN stopped: 1001 (terminated by SIGTERM)
+2023-01-03 07:41:34,069 WARN stopped: 10012 (terminated by SIGTERM)
+2023-01-03 07:41:34,069 WARN stopped: 1003 (terminated by SIGTERM)
+2023-01-03 07:41:34,070 WARN stopped: 1004 (terminated by SIGTERM)
+2023-01-03 07:41:34,070 WARN stopped: 1005 (terminated by SIGTERM)
+2023-01-03 07:41:34,070 WARN stopped: 1006 (terminated by SIGTERM)
+2023-01-03 07:41:34,071 WARN stopped: 1007 (terminated by SIGTERM)
+2023-01-03 07:41:34,071 WARN stopped: 1008 (terminated by SIGTERM)
+2023-01-03 07:41:34,071 WARN stopped: 1009 (terminated by SIGTERM)
+2023-01-03 07:42:09,176 INFO Set uid to user 0 succeeded
+2023-01-03 07:42:09,181 INFO RPC interface 'supervisor' initialized
+2023-01-03 07:42:09,182 INFO supervisord started with pid 1
+2023-01-03 07:42:10,187 INFO spawned: '1001' with pid 11
+2023-01-03 07:42:10,189 INFO spawned: '10010' with pid 12
+2023-01-03 07:42:10,191 INFO spawned: '10011' with pid 13
+2023-01-03 07:42:10,193 INFO spawned: '10012' with pid 14
+2023-01-03 07:42:10,194 INFO spawned: '1002' with pid 15
+2023-01-03 07:42:10,197 INFO spawned: '1003' with pid 16
+2023-01-03 07:42:10,200 INFO spawned: '1004' with pid 17
+2023-01-03 07:42:10,202 INFO spawned: '1005' with pid 18
+2023-01-03 07:42:10,205 INFO spawned: '1006' with pid 19
+2023-01-03 07:42:10,207 INFO spawned: '1007' with pid 20
+2023-01-03 07:42:10,209 INFO spawned: '1008' with pid 21
+2023-01-03 07:42:10,212 INFO spawned: '1009' with pid 22
+2023-01-03 07:42:11,215 INFO success: 1001 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:42:11,216 INFO success: 10010 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:42:11,216 INFO success: 10011 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:42:11,216 INFO success: 10012 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:42:11,216 INFO success: 1002 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:42:11,216 INFO success: 1003 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:42:11,216 INFO success: 1004 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:42:11,216 INFO success: 1005 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:42:11,216 INFO success: 1006 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:42:11,216 INFO success: 1007 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:42:11,216 INFO success: 1008 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:42:11,217 INFO success: 1009 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:42:38,277 WARN received SIGTERM indicating exit request
+2023-01-03 07:42:38,278 INFO waiting for 1001, 10010, 10011, 10012, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009 to die
+2023-01-03 07:42:38,283 WARN stopped: 1001 (terminated by SIGTERM)
+2023-01-03 07:42:38,283 WARN stopped: 10010 (terminated by SIGTERM)
+2023-01-03 07:42:38,283 WARN stopped: 10011 (terminated by SIGTERM)
+2023-01-03 07:42:38,283 WARN stopped: 10012 (terminated by SIGTERM)
+2023-01-03 07:42:38,284 WARN stopped: 1002 (terminated by SIGTERM)
+2023-01-03 07:42:38,284 WARN stopped: 1003 (terminated by SIGTERM)
+2023-01-03 07:42:38,284 WARN stopped: 1004 (terminated by SIGTERM)
+2023-01-03 07:42:38,284 WARN stopped: 1005 (terminated by SIGTERM)
+2023-01-03 07:42:38,284 WARN stopped: 1006 (terminated by SIGTERM)
+2023-01-03 07:42:38,284 WARN stopped: 1007 (terminated by SIGTERM)
+2023-01-03 07:42:38,284 WARN stopped: 1008 (terminated by SIGTERM)
+2023-01-03 07:42:38,284 WARN stopped: 1009 (terminated by SIGTERM)
+2023-01-03 07:44:04,090 INFO Set uid to user 0 succeeded
+2023-01-03 07:44:04,097 INFO RPC interface 'supervisor' initialized
+2023-01-03 07:44:04,097 INFO supervisord started with pid 1
+2023-01-03 07:44:05,100 INFO spawned: '1001' with pid 11
+2023-01-03 07:44:05,103 INFO spawned: '10010' with pid 12
+2023-01-03 07:44:05,105 INFO spawned: '10011' with pid 13
+2023-01-03 07:44:05,107 INFO spawned: '10012' with pid 14
+2023-01-03 07:44:05,109 INFO spawned: '1002' with pid 15
+2023-01-03 07:44:05,110 INFO spawned: '1003' with pid 16
+2023-01-03 07:44:05,113 INFO spawned: '1004' with pid 17
+2023-01-03 07:44:05,116 INFO spawned: '1005' with pid 18
+2023-01-03 07:44:05,118 INFO spawned: '1006' with pid 19
+2023-01-03 07:44:05,121 INFO spawned: '1007' with pid 20
+2023-01-03 07:44:05,123 INFO spawned: '1008' with pid 21
+2023-01-03 07:44:05,126 INFO spawned: '1009' with pid 22
+2023-01-03 07:44:06,129 INFO success: 1001 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:44:06,129 INFO success: 10010 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:44:06,129 INFO success: 10011 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:44:06,130 INFO success: 10012 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:44:06,130 INFO success: 1002 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:44:06,130 INFO success: 1003 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:44:06,130 INFO success: 1004 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:44:06,130 INFO success: 1005 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:44:06,130 INFO success: 1006 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:44:06,131 INFO success: 1007 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:44:06,131 INFO success: 1008 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:44:06,131 INFO success: 1009 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-01-03 07:44:56,208 WARN received SIGTERM indicating exit request
+2023-01-03 07:44:56,209 INFO waiting for 1001, 10010, 10011, 10012, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009 to die
+2023-01-03 07:44:56,211 WARN stopped: 1002 (terminated by SIGTERM)
+2023-01-03 07:44:56,211 WARN stopped: 10010 (terminated by SIGTERM)
+2023-01-03 07:44:56,211 WARN stopped: 1001 (terminated by SIGTERM)
+2023-01-03 07:44:56,212 WARN stopped: 10011 (terminated by SIGTERM)
+2023-01-03 07:44:56,212 WARN stopped: 10012 (terminated by SIGTERM)
+2023-01-03 07:44:56,212 WARN stopped: 1003 (terminated by SIGTERM)
+2023-01-03 07:44:56,212 WARN stopped: 1004 (terminated by SIGTERM)
+2023-01-03 07:44:56,212 WARN stopped: 1005 (terminated by SIGTERM)
+2023-01-03 07:44:56,212 WARN stopped: 1006 (terminated by SIGTERM)
+2023-01-03 07:44:56,213 WARN stopped: 1007 (terminated by SIGTERM)
+2023-01-03 07:44:56,213 WARN stopped: 1008 (terminated by SIGTERM)
+2023-01-03 07:44:56,213 WARN stopped: 1009 (terminated by SIGTERM)

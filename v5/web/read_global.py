@@ -8,7 +8,7 @@ from xmlrpc.client import ServerProxy
 SERVER_POOL = [
     f"{_.get('group')}:{_.get('name')}"
     for _ in ServerProxy(
-        "http://admin:d5a122d9@localhost:19001/RPC2"
+        "http://admin:d5a122d9@localhost:9001/RPC2"
     ).supervisor.signalAllProcesses("data_science")
 ]
 ITERATE_SERVER_URLS = cycle(SERVER_POOL)
@@ -56,7 +56,10 @@ class Populate(object):
 
 
 RemoteManager.register("NextServer")
-manager = RemoteManager(address=("0.0.0.0", 12345), authkey=b"5a946d6066c1487")
+manager = RemoteManager(
+    address=("0.0.0.0", int(next(ITERATE_SERVER_URLS).split(":")[1])),
+    authkey=b"5a946d6066c1487",
+)
 manager.connect()
 
 remote_ops = getattr(manager, "NextServer")()
@@ -71,9 +74,14 @@ def worker(times):
         logger.info("server: %s, type(server): %s", server, type(server))
         logger.info("populates: %s, type(populates): %s", populates, type(populates))
         logger.info(
+            "type(Populate(populates)): %s",
+            type(Populate(populates)),
+        )
+        logger.info(
             "Populate(populates).when() == populates: %s",
             Populate(populates).when() == populates,
         )
+        logger.debug("====")
 
 
 if __name__ == "__main__":

@@ -46,7 +46,7 @@ class NextServer:
 
     @staticmethod
     def populates():
-        return Populate(time.perf_counter_ns()).when()
+        return Populate(time.perf_counter_ns())
 
 
 class RemoteManager(BaseManager):

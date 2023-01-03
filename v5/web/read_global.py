@@ -72,14 +72,15 @@ def worker(times):
         populates = remote_ops.populates()
 
         logger.info("server: %s, type(server): %s", server, type(server))
-        logger.info("populates: %s, type(populates): %s", populates, type(populates))
+        logger.info("populates: %s, populates.when(): %s", server, populates.when())
+
         logger.info(
             "type(Populate(populates)): %s",
             type(Populate(populates)),
         )
         logger.info(
-            "Populate(populates).when() == populates: %s",
-            Populate(populates).when() == populates,
+            "Populate(populates).when() == populates.when(): %s",
+            Populate(populates).when() == populates.when(),
         )
         logger.debug("====")
 

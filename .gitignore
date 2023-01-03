@@ -1,3 +1,5 @@
 .env
-global.log
+*.log
+*.pid
+
 .idea/

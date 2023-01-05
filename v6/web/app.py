@@ -11,7 +11,7 @@ def post_image():
         image = Image.open(BytesIO(image.read()))
         buffer = BytesIO()
         image.save(buffer, format="PNG")
-        return encodebytes(buffer.getvalue()).decode('ascii')
+        return make_response(encodebytes(buffer.getvalue()).decode('ascii'), 200)
     else:
         return make_response("`image` field is required.", 400)
 

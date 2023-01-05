@@ -20,3 +20,6 @@ docker exec -it cds python3 -c "from xmlrpc.client import ServerProxy;\
 server = ServerProxy('http://admin:d5a122d9@localhost:9001/RPC2');\
 print(server.supervisor.signalAllProcesses('data_science'))"
 ```
+
+# Run app
+> docker exec -it cds python3 read_global.py 10

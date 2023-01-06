@@ -9,13 +9,10 @@ def bufio():
     pyplot.plot([1, 2])
     pyplot.title("test")
 
-    buffer = io.BytesIO()
-    pyplot.savefig(buffer, format="png")
-    # pyplot.savefig("real.png", format="png")
-
-    buffer.seek(0)
-    data = buffer.read()
-    buffer.close()
+    with io.BytesIO() as buffer:
+        pyplot.savefig(buffer, format="png")
+        buffer.seek(0)
+        data = buffer.read()
 
     with open("buffered.png", "wb") as img:
         img.write(data)

@@ -1,6 +1,6 @@
 import io
 
-import numpy as np
+import numpy
 from matplotlib import pyplot
 
 
@@ -19,7 +19,7 @@ def bufio():
 
 
 def save_to():
-    ys = 200 + np.random.randn(100)
+    ys = 200 + numpy.random.randn(100)
     x = [x for x in range(len(ys))]
     pyplot.plot(x, ys, "-")
     pyplot.fill_between(x, ys, 195, where=(ys > 195), facecolor="g", alpha=0.6)

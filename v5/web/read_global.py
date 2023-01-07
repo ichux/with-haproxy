@@ -78,10 +78,10 @@ def worker(times):
             "type(Populate(populates)): %s",
             type(Populate(populates)),
         )
-        logger.info(
-            "Populate(populates).when() == populates.when(): %s",
-            Populate(populates).when() == populates.when(),
-        )
+        # logger.info(
+        #     "Populate(populates).when() == populates.when(): %s",
+        #     Populate(populates).when() == populates.when(),
+        # )
         logger.debug("====")
 
 

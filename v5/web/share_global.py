@@ -1,9 +1,13 @@
 import argparse
+import io
 import logging
 import sys
 import time
+from base64 import encodebytes
 from itertools import cycle
 from multiprocessing.managers import BaseManager
+
+from matplotlib import pyplot
 
 count = 0
 
@@ -48,6 +52,23 @@ class NextServer:
         return Populate(self.ns)
 
 
+class DynamicAIReport(object):
+    @staticmethod
+    def bufio(title, *args):
+        pyplot.plot(args)
+        pyplot.title(title)
+
+        with io.BytesIO() as buffer:
+            pyplot.savefig(buffer, format="png")
+            buffer.seek(0)
+            return buffer.read()  # encodebytes(buffer.getvalue()).decode("ascii")
+
+        # with open("sinus.pickle", "wb") as f:
+        #     pickle.dump(pyplot, f)
+        #     logging.info("in here")
+        #     return f
+
+
 class RemoteManager(BaseManager):
     pass
 
@@ -71,6 +92,9 @@ if __name__ == "__main__":
     # logging.info("port.value: %d", port.value)
 
     RemoteManager.register("NextServer", NextServer)
+    RemoteManager.register("DynamicAIReport", DynamicAIReport)
+
     RemoteManager(
-        address=("0.0.0.0", args.port), authkey=b"5a946d6066c1487"
+        address=("0.0.0.0", args.port),
+        authkey=b"5a946d6066c1487",
     ).get_server().serve_forever()

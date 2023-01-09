@@ -63,8 +63,8 @@ def bufio():
     with open("air_bufio.png", "wb") as img:
         img.write(air.bufio("img-1", 1, 2))
 
-    with open("air_bufio_2.png", "wb") as img:
-        img.write(air.bufio("img-2", 2, 4))
+    with open("ong.png", "wb") as img:
+        img.write(air.save_to())
 
 
 if __name__ == "__main__":

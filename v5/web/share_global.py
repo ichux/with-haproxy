@@ -61,12 +61,7 @@ class DynamicAIReport(object):
         with io.BytesIO() as buffer:
             pyplot.savefig(buffer, format="png")
             buffer.seek(0)
-            return buffer.read()  # encodebytes(buffer.getvalue()).decode("ascii")
-
-        # with open("sinus.pickle", "wb") as f:
-        #     pickle.dump(pyplot, f)
-        #     logging.info("in here")
-        #     return f
+            return buffer.read()
 
 
 class RemoteManager(BaseManager):

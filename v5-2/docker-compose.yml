@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  ids:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cdsi
+    restart: always
+    container_name: cds
+    # command: bash ./onboot.sh
+    command:
+    - "/bin/bash"
+    - "./onboot.sh"
+    volumes:
+      - ./web:/web
+  
+  server:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - ${WEB_PORT:-9010}:80
+    volumes:
+      - ./nginx/templates:/usr/share/nginx/html
+    depends_on:
+      - ids

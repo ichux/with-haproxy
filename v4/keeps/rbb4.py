@@ -29,7 +29,6 @@ def thread_2(variable):
 
 
 if __name__ == "__main__":
-
     m = multiprocessing.Manager()
     variable = m.Value("i", 60)
 

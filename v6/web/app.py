@@ -15,9 +15,12 @@ def healthcheck():
 @app.route("/", methods=["POST"])
 def upload():
     if (image := request.files.get("image")) is not None:
+        filetype = image.filename.split(".")[-1]
+
         image = Image.open(BytesIO(image.read()))
         buffer = BytesIO()
-        image.save(buffer, format="PNG")
+
+        image.save(buffer, format=filetype)
 
         return make_response(encodebytes(buffer.getvalue()).decode("ascii"), 200)
     else:

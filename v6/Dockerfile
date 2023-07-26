@@ -16,5 +16,5 @@ FROM python:3.10.8-alpine3.16
 COPY --from=python-alpine /usr/local/lib/python3.10 /usr/local/lib/python3.10
 COPY --from=python-alpine /usr/local/bin /usr/local/bin
 
-# pip freeze | grep -Ei "flask|pillow|gunicorn" > requirements.txt 
+# pip freeze | grep -Ei "flask|pillow|gunicorn" > requirements.txt
 WORKDIR /web

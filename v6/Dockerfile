@@ -1,20 +1,22 @@
-FROM python:3.10.8-alpine3.16 as python-alpine
+FROM python:3.10.12-slim-bullseye AS builder
 
-ENV P1="pip3 download --cache-dir . --only-binary=:all"
-ENV P2="pip3 install --find-links=. --cache-dir . --disable-pip-version-check"
+RUN apt update && apt install build-essential -y
+RUN apt install -y curl python3-venv
 
-#RUN apk add --no-cache build-base linux-headers # && apk del build-base linux-headers && rm -rf /var/cache/apk/*
+WORKDIR /home
 
 COPY requirements.txt .
-RUN $P1 pip setuptools wheel -r requirements.txt && $P2 pip setuptools wheel && \
-    $P2 $(ls *.whl | tr '\n' ' ')  &> /dev/null && \
-    find /usr/local/lib/python3.10 -name '__pycache__' -type d -print0 | xargs -0 /bin/rm -rf '{}' && \
-    find /usr/local/lib/python3.10 -iname '*.pyc' -delete
 
-FROM python:3.10.8-alpine3.16
+RUN python3 -m venv .env && . .env/bin/activate && \
+    pip install -U pip setuptools wheel && \
+    pip install -r requirements.txt && \
+    find . -name '__pycache__' -type d -print0 | xargs -0 /bin/rm -rf '{}' && \
+    find . -iname '*.pyc' -delete
 
-COPY --from=python-alpine /usr/local/lib/python3.10 /usr/local/lib/python3.10
-COPY --from=python-alpine /usr/local/bin /usr/local/bin
+FROM python:3.10.12-slim-bullseye
 
-# pip freeze | grep -Ei "flask|pillow|gunicorn" > requirements.txt
-WORKDIR /web
+COPY --from=builder /home/ /home/
+
+WORKDIR /home/web/
+
+# CMD tail -f /dev/null

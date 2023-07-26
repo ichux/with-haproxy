@@ -7,6 +7,11 @@ from PIL import Image
 app = Flask(__name__)
 
 
+@app.route("/healthcheck")
+def healthcheck():
+    return {"healthcheck": "UP"}
+
+
 @app.route("/", methods=["POST"])
 def upload():
     if (image := request.files.get("image")) is not None:

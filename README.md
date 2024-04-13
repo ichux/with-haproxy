@@ -41,7 +41,7 @@ docker run -d \
 # ensure you are within v2 to run all these commands
 cd v2
 cp .env-example .env # and change the ports in ".env" to taste
-docker-compose -p hxy up -d
+docker compose -p hxy up -d
 ```
 
 - Step 2 - Browse (based on the ports in your .env)
@@ -64,8 +64,8 @@ Run
 cd v3
 cp .env-example .env # and change the ports in ".env" to taste
 
-docker-compose -p hxy up --build -d haproxy_if_base
-docker-compose -p hxy up --build -d
+docker compose -p hxy up --build -d haproxy_if_base
+docker compose -p hxy up --build -d
 
 # clean up
 docker stop haproxy_cf_base > /dev/null 2>&1 && docker rm haproxy_cf_base > /dev/null 2>&1

@@ -1,13 +1,8 @@
-version: "3.9"
-
-networks:
-  net:
-
 services:
-  if_app_haproxy:
+  if_haproxy_app:
     image: haproxy:2.9.7-bookworm
     restart: always
-    container_name: cf_app_haproxy
+    container_name: cf_haproxy_app
     ports:
       - ${WEB:-8100}:80
       - ${DASHBOARD:-8200}:8404
@@ -31,3 +26,6 @@ services:
     container_name: cf_haproxy_web2
     networks:
       - net
+
+networks:
+  net:

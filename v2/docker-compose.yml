@@ -4,10 +4,10 @@ networks:
   net:
 
 services:
-  haproxy_if_app:
+  if_app_haproxy:
     image: haproxy:2.9.7-bookworm
     restart: always
-    container_name: haproxy_cf_app
+    container_name: cf_app_haproxy
     ports:
       - ${WEB:-8100}:80
       - ${DASHBOARD:-8200}:8404
@@ -18,14 +18,16 @@ services:
     networks:
       - net
 
-  haproxy_if_web1:
+  if_haproxy_web1:
     image: jmalloc/echo-server
     restart: always
+    container_name: cf_haproxy_web1
     networks:
       - net
 
-  haproxy_if_web2:
+  if_haproxy_web2:
     image: jmalloc/echo-server
     restart: always
+    container_name: cf_haproxy_web2
     networks:
       - net

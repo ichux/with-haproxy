@@ -3,10 +3,13 @@ Demo scaling all sorts of apps with HAProxy
 
 # Start up - V1
 - Step 1:
- docker pull haproxy:2.7.1-bullseye && docker pull jmalloc/echo-server
+ docker pull haproxy:2.9.7-bookworm && docker pull jmalloc/echo-server
 
 - Step 2:
 ```shell
+# replace occurrence of 2.7.1-bullseye using 2.9.7-bookworm
+# git grep -lz 2.7.1-bullseye | xargs -0 sed -i '' -e 's/2.7.1-bullseye/2.9.7-bookworm/g'
+
 # ensure you are within v1 to run all these commands
 cd v1
 
@@ -28,7 +31,7 @@ docker run -d \
    -v $(pwd):/usr/local/etc/haproxy:ro \
    -p 8100:80 \
    -p 8200:8404 \
-   haproxy:2.7.1-bullseye
+   haproxy:2.9.7-bookworm
 ```
 
 - Step 3 - Browse (based on the ports in your .env)
@@ -41,7 +44,7 @@ docker run -d \
 # ensure you are within v2 to run all these commands
 cd v2
 cp .env-example .env # and change the ports in ".env" to taste
-docker compose -p hxy up -d
+docker compose up -d
 ```
 
 - Step 2 - Browse (based on the ports in your .env)
@@ -64,18 +67,11 @@ Run
 cd v3
 cp .env-example .env # and change the ports in ".env" to taste
 
-docker compose -p hxy up --build -d haproxy_if_base
-docker compose -p hxy up --build -d
+docker compose up --build -d
 
 # clean up
-docker stop haproxy_cf_base > /dev/null 2>&1 && docker rm haproxy_cf_base > /dev/null 2>&1
-
-# connect from another image
-docker run --tty -d --name hxy-haproxy_if_web3-1 --net hxy_net haproxy_if_base
-docker exec -it hxy-haproxy_if_web3-1 python read_net_1_global.py 1
-
-# TODO: fix it
-docker exec -it hxy-haproxy_if_web3-1 python read_net_2_global.py 1
+docker exec -it v3-if_haproxy_web1-1 python read_net_2_global.py 1
+docker exec -it v3-if_haproxy_web2-1 python read_net_global.py 1
 ```
 
 #  Start up - V4

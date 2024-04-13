@@ -5,7 +5,7 @@ networks:
 
 services:
   haproxy_if_app:
-    image: haproxy:2.7.1-bullseye
+    image: haproxy:2.9.7-bookworm
     restart: always
     container_name: haproxy_cf_app
     ports:

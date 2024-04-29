@@ -1,5 +1,6 @@
 import json
 import signal
+import sys
 import urllib.parse
 
 from confluent_kafka import Consumer, KafkaError
@@ -55,7 +56,8 @@ engine = create_engine(
     URL.create(
         "postgresql+psycopg2",
         username="dbuser",
-        password="kx@jj5/g",  # plain (unescaped) text
+        # plain (unescaped) text
+        password="kx@jj5/g",
         host="pghost10",
         database="appdb",
     )
@@ -85,7 +87,7 @@ def consume_and_insert():
 # Function to handle SIGINT (Ctrl+C) and properly shutdown the consumer
 def shutdown(signal, frame):
     consumer.close()
-    exit(0)
+    sys.exit(0)
 
 
 # Set up signal handler for SIGINT

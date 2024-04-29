@@ -54,9 +54,6 @@ docker compose up -d
 #  Start up - V3
 The concept is to test a global variable accessible across network.
 
-Run
-   > ./floods.sh
-
 - Step 1
 ```shell
 
@@ -72,6 +69,9 @@ docker compose up --build -d
 # clean up
 docker exec -it v3-if_haproxy_web1-1 python read_net_2_global.py 1
 docker exec -it v3-if_haproxy_web2-1 python read_net_global.py 1
+
+docker exec -it v3-if_haproxy_web1-1 ./floods.sh
+docker exec -it v3-if_haproxy_web2-1 ./floods.sh
 ```
 
 #  Start up - V4

@@ -22,7 +22,7 @@ convention = {
 }
 
 # Define PostgreSQL table schema
-# metadata = MetaData(naming_convention=convention, schema="publix')
+# metadata = MetaData(naming_convention=convention, schema="public')
 metadata = MetaData(naming_convention=convention, schema=None)
 example_table = Table(
     pg_table_name,

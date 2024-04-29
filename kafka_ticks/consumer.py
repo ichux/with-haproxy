@@ -3,7 +3,7 @@ import signal
 import urllib.parse
 
 from confluent_kafka import Consumer, KafkaError
-from sqlalchemy import Column, Integer, MetaData, String, Table, create_engine
+from sqlalchemy import URL, Column, Integer, MetaData, String, Table, create_engine
 
 # Kafka configuration
 kafka_bootstrap_servers = "localhost:9092"
@@ -33,7 +33,7 @@ example_table = Table(
 
 
 def connection_setting(password):
-    return f"postgresql://username:{urllib.parse.quote_plus(password)}@localhost:5432/dbname"
+    return f"postgresql+psycopg2://username:{urllib.parse.quote_plus(password)}@localhost:5432/dbname"
 
 
 # Create Kafka consumer
@@ -49,7 +49,17 @@ consumer = Consumer(
 consumer.subscribe([kafka_topic])
 
 # Create PostgreSQL engine
-engine = create_engine(connection_setting("kx@jj5/g"))
+# engine = create_engine(connection_setting("kx@jj5/g"))
+
+engine = create_engine(
+    URL.create(
+        "postgresql+psycopg2",
+        username="dbuser",
+        password="kx@jj5/g",  # plain (unescaped) text
+        host="pghost10",
+        database="appdb",
+    )
+)
 
 
 # Function to consume messages from Kafka and insert into PostgreSQL

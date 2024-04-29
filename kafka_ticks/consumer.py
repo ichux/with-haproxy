@@ -49,9 +49,7 @@ consumer = Consumer(
 # Subscribe to Kafka topic
 consumer.subscribe([kafka_topic])
 
-# Create PostgreSQL engine
 # engine = create_engine(connection_setting("kx@jj5/g"))
-
 engine = create_engine(
     URL.create(
         "postgresql+psycopg2",
@@ -84,14 +82,8 @@ def consume_and_insert():
             )
 
 
-# Function to handle SIGINT (Ctrl+C) and properly shutdown the consumer
-def shutdown(signal, frame):
-    consumer.close()
-    sys.exit(0)
-
-
 # Set up signal handler for SIGINT
-signal.signal(signal.SIGINT, shutdown)
+signal.signal(signal.SIGINT, lambda signal_, frame: (consumer.close(), sys.exit(0)))
 
 if __name__ == "__main__":
     consume_and_insert()

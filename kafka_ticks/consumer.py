@@ -63,6 +63,7 @@ engine = create_engine(
 
 
 # Function to consume messages from Kafka and insert into PostgreSQL
+# noinspection PyTypeChecker
 def consume_and_insert():
     for msg in consumer:
         if msg.error():
